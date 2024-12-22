@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Footer from './Footer'
+import React, { Component } from "react";
+import styled from "styled-components";
+import Footer from "./Footer";
 
-import {Card, Form, Row, Col, Button} from 'react-bootstrap'
+import { Card, Form, Row, Col, Button } from "react-bootstrap";
 
 const ContextText = styled.div`
   margin: 15px 0;
@@ -10,29 +10,28 @@ const ContextText = styled.div`
   h1 {
     font-weight: 700;
   }
-`
+`;
 
 export class Dashboard extends Component {
-  
   state = {
     oldusername: this.props.pathParam,
-    full_name: '',
-    create: '',
-    creating: ''
-  }
+    full_name: "",
+    create: "",
+    creating: "",
+  };
 
   handleChange = (e) => {
-    let name = e.target.name
+    let name = e.target.name;
     this.setState({
-      [name]: e.target.value
-    })
-  }
+      [name]: e.target.value,
+    });
+  };
 
   handleRadioChange = (e) => {
     this.setState({
-      creating: e.target.value
-    })
-  }
+      creating: e.target.value,
+    });
+  };
 
   render() {
     return (
@@ -41,28 +40,40 @@ export class Dashboard extends Component {
           <div className="container pt-5">
             <ul className="nav nav-tabs mt-5">
               <li className="nav-item">
-                <a className="nav-link active" data-toggle="tab" href="#home">About</a>
+                <a className="nav-link active" data-toggle="tab" href="#home">
+                  About
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" data-toggle="tab" href="#menu1">Tiers</a>
+                <a className="nav-link" data-toggle="tab" href="#menu1">
+                  Tiers
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" data-toggle="tab" href="#menu2">Goals</a>
+                <a className="nav-link" data-toggle="tab" href="#menu2">
+                  Goals
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" data-toggle="tab" href="#menu3">Thanks</a>
+                <a className="nav-link" data-toggle="tab" href="#menu3">
+                  Thanks
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" data-toggle="tab" href="#menu4">Payments</a>
+                <a className="nav-link" data-toggle="tab" href="#menu4">
+                  Payments
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" data-toggle="tab" href="#menu5">Preview</a>
+                <a className="nav-link" data-toggle="tab" href="#menu5">
+                  Preview
+                </a>
               </li>
             </ul>
 
             <div className="tab-content">
               <div className="tab-pane container active" id="home">
-                <About 
+                <About
                   handleChange={this.handleChange}
                   handleUpdate={this.props.handleUpdate}
                   handleChecked={this.handleChecked}
@@ -71,17 +82,27 @@ export class Dashboard extends Component {
                   user={this.props.user}
                 />
               </div>
-              <div className="tab-pane container fade p-5" id="menu1"><h1>Coming Soon!</h1></div>
-              <div className="tab-pane container fade p-5" id="menu2"><h1>Coming Soon!</h1></div>
-              <div className="tab-pane container fade p-5" id="menu3"><h1>Coming Soon!</h1></div>
-              <div className="tab-pane container fade p-5" id="menu4"><h1>Coming Soon!</h1></div>
-              <div className="tab-pane container fade p-5" id="menu5"><h1>Coming Soon!</h1></div>
+              <div className="tab-pane container fade p-5" id="menu1">
+                <h1>Coming Soon!</h1>
+              </div>
+              <div className="tab-pane container fade p-5" id="menu2">
+                <h1>Coming Soon!</h1>
+              </div>
+              <div className="tab-pane container fade p-5" id="menu3">
+                <h1>Coming Soon!</h1>
+              </div>
+              <div className="tab-pane container fade p-5" id="menu4">
+                <h1>Coming Soon!</h1>
+              </div>
+              <div className="tab-pane container fade p-5" id="menu5">
+                <h1>Coming Soon!</h1>
+              </div>
             </div>
           </div>
           <Footer />
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
@@ -99,31 +120,33 @@ function About(props) {
               <Card.Body>
                 <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={4}>
-                    <b>Your full name</b> <br/>
+                    <b>Your full name</b> <br />
                     <span className="text-muted">Required</span>
                   </Form.Label>
                   <Col sm={8}>
-                    <Form.Control 
-                      type="text" 
-                      name="full_name" 
-                      onChange={props.handleChange} 
-                      className="p-4" 
-                      required />
+                    <Form.Control
+                      type="text"
+                      name="full_name"
+                      onChange={props.handleChange}
+                      className="p-4"
+                      required
+                    />
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalPassword">
                   <Form.Label column sm={4}>
-                    <b>What are you creating?</b> <br/>
+                    <b>What are you creating?</b> <br />
                     <span className="text-muted">Required</span>
                   </Form.Label>
                   <Col sm={8}>
-                    <Form.Control 
-                      type="text" 
+                    <Form.Control
+                      type="text"
                       name="create"
-                      onChange={props.handleChange} 
-                      className="p-4" 
-                      required />
+                      onChange={props.handleChange}
+                      className="p-4"
+                      required
+                    />
                   </Col>
                 </Form.Group>
                 <fieldset>
@@ -159,26 +182,26 @@ function About(props) {
               <Card.Body>
                 <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={4}>
-                    <b>Profile picture</b> <br/>
+                    <b>Profile picture</b> <br />
                     <span className="text-muted">Required</span>
-                    <span className="text-muted d-block mt-1">This will appear on your Patreon page and in messages, lists, and search</span>
+                    <span className="text-muted d-block mt-1">
+                      This will appear on your elevatr page and in messages,
+                      lists, and search
+                    </span>
                   </Form.Label>
-                  <Col sm={8}>
-
-                  </Col>
+                  <Col sm={8}></Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="formHorizontalEmail">
                   <Form.Label column sm={4}>
-                    <b>Cover image</b> <br/>
+                    <b>Cover image</b> <br />
                     <span className="text-muted">Required</span>
                     <span className="text-muted d-block mt-1">
-                      This will appear on your Patreon page. We recommend the image be at least 1200px wide.
+                      This will appear on your elevatr page. We recommend the
+                      image be at least 1200px wide.
                     </span>
                   </Form.Label>
-                  <Col sm={8}>
-
-                  </Col>
+                  <Col sm={8}></Col>
                 </Form.Group>
               </Card.Body>
             </Card>
@@ -200,7 +223,7 @@ function About(props) {
                     <a href="#a">How to choose your business model</a>
                   </li>
                   <li>
-                    <a href="#a">How to talk about Patreon to your audience</a>
+                    <a href="#a">How to talk about elevatr to your audience</a>
                   </li>
                   <li>
                     <a href="#a">Knowing your worth as a creator</a>
@@ -217,10 +240,8 @@ function About(props) {
           </div>
         </div>
       </Form>
-      
     </div>
-  )
+  );
 }
 
-
-export default Dashboard
+export default Dashboard;
